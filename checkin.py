@@ -40,7 +40,6 @@ def main():
     sckey = os.getenv("SENDKEY", "")
     cookies_env = os.getenv("COOKIES", "")
     cookies = [c.strip() for c in cookies_env.split("&") if c.strip()]
-    sckey = [c.strip() for c in sckey.split("&") if c.strip()]
 
     if not cookies:
         push(sckey, "GLaDOS 签到", "❌ 未检测到 COOKIES")
@@ -99,8 +98,7 @@ def main():
     content = "\n".join(lines)
 
     print(content)
-    push(sckey[0], title, content)
-    push(sckey[1], title, content)
+    push(sckey, title, content)
 
 
 if __name__ == "__main__":
